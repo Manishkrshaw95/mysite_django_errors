@@ -11,15 +11,8 @@ class userViewSet(generics.RetrieveAPIView):
     """
     #serializer_class = MuserSerializer
 
-    def get(self, request):   
+    def get(self, request):
 
-        shw = Muser.objects.filter(pk!=None)
-
-        print (shw._data)#(MuserSerializer(data=shw).data)
-        return Response(MuserSerializer(shw, many=True)).data
-    
-
-
-
-
-
+        shw = Muser.objects.all()
+        print (shw)#(MuserSerializer(data=shw).data)
+        return Response(MuserSerializer(shw, many=True).data)
